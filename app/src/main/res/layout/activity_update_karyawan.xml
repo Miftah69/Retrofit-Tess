@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.miftah.retrofitnostraok.tambahKaryawan">
+    tools:context="com.example.miftah.retrofitnostraok.UpdateKaryawan">
 
     <EditText
         android:id="@+id/edit_id"
@@ -58,13 +58,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Picture"
-        />
-
-    <Button
-        android:id="@+id/btn_simpan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Create"
         />
 
     <Button

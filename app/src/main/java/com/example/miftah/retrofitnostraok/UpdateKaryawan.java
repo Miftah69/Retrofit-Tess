@@ -15,17 +15,17 @@ import retrofit2.Callback;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class tambahKaryawan extends AppCompatActivity {
+public class UpdateKaryawan extends AppCompatActivity {
 
     String id, nama, address, phone, email, picture, version;
     private EditText editId, editNama, editAdress, editPhone, editEmail, editPicture, editVersion;
 
-    private Button btnUpdate, btnDelete, btnSave;
+    private Button btnUpdate, btnDelete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tambah_karyawan);
+        setContentView(R.layout.activity_update_karyawan);
 
         editId = (EditText) findViewById(R.id.edit_id);
         editVersion = (EditText) findViewById(R.id.edit_version);
@@ -34,9 +34,6 @@ public class tambahKaryawan extends AppCompatActivity {
         editEmail = (EditText) findViewById(R.id.edit_email);
         editPhone = (EditText) findViewById(R.id.edit_phone);
         editPicture = (EditText) findViewById(R.id.edit_picture);
-        btnUpdate = (Button) findViewById(R.id.btn_update);
-        btnDelete = (Button) findViewById(R.id.btn_delete);
-        btnSave = (Button) findViewById(R.id.btn_simpan);
 
         editId.setText(getIntent().getStringExtra("id"));
         editNama.setText(getIntent().getStringExtra("nama"));
@@ -45,41 +42,6 @@ public class tambahKaryawan extends AppCompatActivity {
         editEmail.setText(getIntent().getStringExtra("email"));
         editPicture.setText(getIntent().getStringExtra("picture"));
         editVersion.setText(getIntent().getStringExtra("version"));
-
-
-        btnSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Retrofit retrofit = new Retrofit.Builder()
-                        .baseUrl(ApiClient.URL)
-                        .addConverterFactory(GsonConverterFactory.create())
-                        .build();
-
-                ApiInterface api = retrofit.create(ApiInterface.class);
-                retrofit2.Call<PersonResponse> call = api.add(id, version, nama, address, email, phone, picture);
-                call.enqueue(new Callback<PersonResponse>() {
-                    @Override
-                    public void onResponse(retrofit2.Call<PersonResponse> call, retrofit2.Response<PersonResponse> response) {
-                        String value = response.body().getValue();
-                        String message = response.body().getMessage();
-
-                        if (value.equals("1")){
-                            Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
-                            finish();
-                        } else {
-                            Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(retrofit2.Call<PersonResponse> call, Throwable t) {
-                        t.printStackTrace();
-                        Toast.makeText(getApplicationContext(), "Jaringan Error", Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
-        });
-
 
 
         btnUpdate.setOnClickListener(new View.OnClickListener() {
