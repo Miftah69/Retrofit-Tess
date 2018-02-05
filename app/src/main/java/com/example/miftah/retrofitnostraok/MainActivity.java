@@ -10,7 +10,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.miftah.retrofitnostraok.API.ApiClient;
-import com.example.miftah.retrofitnostraok.API.ApiInterface;
+import com.example.miftah.retrofitnostraok.model.ApiInterface;
 import com.example.miftah.retrofitnostraok.adapter.PersonRecycleViewAdapter;
 import com.example.miftah.retrofitnostraok.model.Person;
 import com.example.miftah.retrofitnostraok.model.PersonResponse;

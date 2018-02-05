@@ -1,4 +1,4 @@
-package com.example.miftah.retrofitnostraok.API;
+package com.example.miftah.retrofitnostraok.model;
 
 import com.example.miftah.retrofitnostraok.model.PersonResponse;
 

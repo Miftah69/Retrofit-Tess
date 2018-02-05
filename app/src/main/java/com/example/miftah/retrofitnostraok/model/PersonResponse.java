@@ -41,4 +41,7 @@ public class PersonResponse {
 		return message;
 	}
 
+    public String getValue() {
+        return null;
+    }
 }
